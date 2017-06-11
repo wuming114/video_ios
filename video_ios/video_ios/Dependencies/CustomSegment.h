@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import "SegmentLabel.h"
+
 @class CustomSegment;
+
 
 @protocol CustomSegmentDelegate <NSObject>
 
@@ -23,5 +26,10 @@
 
 - (void)setSegments:(NSArray*)segments;
 - (void)setSelectedAtIndex:(NSInteger)index;
+- (void)changeStateAtIndex:(NSInteger)index;
+
+- (void)changeSliderWidth:(CGFloat)width;
+
+- (SegmentLabel*)getButtonAtIndex:(NSInteger)index;
 
 @end

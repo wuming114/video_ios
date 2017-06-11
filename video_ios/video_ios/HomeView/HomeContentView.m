@@ -8,9 +8,11 @@
 
 #import "HomeContentView.h"
 
-@interface HomeContentView ()<CustomSegmentDelegate>
+@interface HomeContentView ()<UIScrollViewDelegate,CustomSegmentDelegate>
 
 @property (nonatomic, strong) NSArray *views;
+
+@property (nonatomic, assign) CGFloat lastScrollPoint;
 
 @end
 
@@ -64,6 +66,7 @@
     _contentView = [[UIScrollView alloc] init];
     _contentView.showsHorizontalScrollIndicator = NO;
     _contentView.pagingEnabled = YES;
+    _contentView.delegate = self;
     [self addSubview:_contentView];
 }
 
@@ -91,8 +94,29 @@
 }
 
 - (void)didTouchSegmentAtIndex:(NSInteger)index{
-    NSLog(@"index===%ld",(long)index);
+    [_contentView setContentOffset:CGPointMake(index*CGRectGetWidth(self.bounds), 0) animated:YES];
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    NSInteger page = scrollView.contentOffset.x / scrollView.frame.size.width;
+    
+    if (_lastScrollPoint < scrollView.contentOffset.x && scrollView.contentOffset.x < _contentView.contentSize.width) {
+        //right
+        
+    }
+    else if (_lastScrollPoint > scrollView.contentOffset.x && scrollView.contentOffset.x > 0) {
+        //left
+        //NSLog(@"left==%f",scrollView.contentOffset.x);
+    }
+    
+    _lastScrollPoint = scrollView.contentOffset.x;
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    NSInteger page = scrollView.contentOffset.x / scrollView.frame.size.width;
+    [_customSegment changeStateAtIndex:page];
+    
+        
+}
 
 @end

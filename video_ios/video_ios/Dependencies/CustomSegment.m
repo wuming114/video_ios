@@ -10,7 +10,7 @@
 #import "UIView+Utils.h"
 #import "NSString+Utils.h"
 
-#import "SegmentLabel.h"
+
 
 
 
@@ -49,6 +49,7 @@
 @property (nonatomic, assign) CGFloat hMargin;
 @property (nonatomic, assign) CGFloat bottomMargin;
 @property (nonatomic, assign) NSInteger currentIndex;
+@property (nonatomic, assign) CGFloat screenWidth;
 @property (nonatomic, strong) SliderBar *sliderBar;
 
 @end
@@ -69,7 +70,7 @@
 }
 
 - (void)setSegments:(NSArray*)segments {
-    
+    _screenWidth = [UIScreen mainScreen].bounds.size.width;
     _buttons = [[NSMutableArray alloc] init];
     
     if ([[self subviews] count] > 0) {
@@ -101,10 +102,23 @@
     SegmentLabel *button = (SegmentLabel*)[_buttons objectAtIndex:index];
     _currentIndex = button.tag;
     [self changeButtonState:button];
+    [self changeSliderPoint:_currentIndex];
     
     if ([_segmentDelegate respondsToSelector:@selector(didTouchSegmentAtIndex:)]) {
         [_segmentDelegate didTouchSegmentAtIndex:button.tag];
     }
+}
+
+- (void)changeStateAtIndex:(NSInteger)index{
+    SegmentLabel *button = (SegmentLabel*)[_buttons objectAtIndex:index];
+    [self changeButtonState:button];
+    _currentIndex = button.tag;
+    [self changeSliderPoint:_currentIndex];
+}
+
+- (SegmentLabel*)getButtonAtIndex:(NSInteger)index {
+    SegmentLabel *button = (SegmentLabel*)[_buttons objectAtIndex:index];
+    return button;
 }
 
 - (void)changeButtonState:(SegmentLabel*)button {
@@ -130,6 +144,25 @@
         _sliderBar.frame = frame;
         
     }];
+    [self changeOriginAtIndex:index];
+}
+
+- (void)changeOriginAtIndex:(NSInteger)index{
+    if (self.contentOffset.x == 0 || self.contentOffset.x == self.contentSize.width - _screenWidth) {
+        return;
+    }
+    
+    SegmentLabel *button = (SegmentLabel*)[_buttons objectAtIndex:index];
+    int originX = button.frame.origin.x;
+    
+    while (originX < _screenWidth) {
+        originX -= _screenWidth;
+    }
+    
+}
+
+- (void)changeSliderWidth:(CGFloat)width {
+    
 }
 
 - (void)layoutSubviews {
