@@ -8,7 +8,11 @@
 
 #import "LiveViewController.h"
 
-@interface LiveViewController ()
+
+
+@interface LiveViewController (){
+    CABasicAnimation
+}
 
 @end
 

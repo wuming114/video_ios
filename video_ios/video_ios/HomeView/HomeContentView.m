@@ -98,15 +98,20 @@
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if (scrollView.contentOffset.x <= 0 || scrollView.contentOffset.x >= scrollView.contentSize.width - scrollView.frame.size.width) {
+        return;
+    }
     NSInteger page = scrollView.contentOffset.x / scrollView.frame.size.width;
     
     if (_lastScrollPoint < scrollView.contentOffset.x && scrollView.contentOffset.x < _contentView.contentSize.width) {
         //right
+        NSLog(@"right==%f",scrollView.contentOffset.x);
         
     }
     else if (_lastScrollPoint > scrollView.contentOffset.x && scrollView.contentOffset.x > 0) {
         //left
-        //NSLog(@"left==%f",scrollView.contentOffset.x);
+        NSLog(@"left==%f",scrollView.contentOffset.x);
+        
     }
     
     _lastScrollPoint = scrollView.contentOffset.x;
