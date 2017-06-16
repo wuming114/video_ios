@@ -177,7 +177,9 @@
 }
 
 - (void)layoutSubviews {
-    
+    if (self.needsUpdateConstraints) {
+        
+    }
     if (CGSizeEqualToSize(self.contentSize, CGSizeZero)) {
         _hMargin = 10;
         _hSpace = 15;
@@ -193,7 +195,8 @@
         }
         [self setContentSize:CGSizeMake(x, CGRectGetHeight(self.bounds))];
         SegmentLabel *button = (SegmentLabel*)[_buttons objectAtIndex:_currentIndex];
-        [self changeSliderFrame:button];
+        [self changeSliderFrame:button];
+
     }
     
 }

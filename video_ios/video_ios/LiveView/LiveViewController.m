@@ -11,7 +11,7 @@
 
 
 @interface LiveViewController (){
-    CABasicAnimation
+    
 }
 
 @end

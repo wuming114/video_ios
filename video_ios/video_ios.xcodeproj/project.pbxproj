@@ -45,6 +45,9 @@
 		2764350A1EEA823300F5B90C /* CustomSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 276435091EEA823300F5B90C /* CustomSegment.m */; };
 		2764350D1EEA880C00F5B90C /* SegmentLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2764350C1EEA880C00F5B90C /* SegmentLabel.m */; };
 		276435101EEAA00700F5B90C /* HomeContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2764350F1EEAA00700F5B90C /* HomeContentView.m */; };
+		2769E10C1EEF96890020EFE0 /* UIViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2769E1061EEF96890020EFE0 /* UIViewAdditions.m */; };
+		2769E10D1EEF96890020EFE0 /* UIView+TKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 2769E1081EEF96890020EFE0 /* UIView+TKCategory.m */; };
+		2769E10E1EEF96890020EFE0 /* UIView+Sizes.m in Sources */ = {isa = PBXBuildFile; fileRef = 2769E10A1EEF96890020EFE0 /* UIView+Sizes.m */; };
 		27B626871EC5B4260011971A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B626861EC5B4260011971A /* main.m */; };
 		27B6268A1EC5B4260011971A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 27B626891EC5B4260011971A /* AppDelegate.m */; };
 		27B626921EC5B4260011971A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27B626911EC5B4260011971A /* Assets.xcassets */; };
@@ -107,6 +110,12 @@
 		2764350C1EEA880C00F5B90C /* SegmentLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SegmentLabel.m; path = Dependencies/SegmentLabel.m; sourceTree = "<group>"; };
 		2764350E1EEAA00700F5B90C /* HomeContentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeContentView.h; path = HomeView/HomeContentView.h; sourceTree = "<group>"; };
 		2764350F1EEAA00700F5B90C /* HomeContentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeContentView.m; path = HomeView/HomeContentView.m; sourceTree = "<group>"; };
+		2769E1061EEF96890020EFE0 /* UIViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIViewAdditions.m; path = Dependencies/UIViewAdditions.m; sourceTree = "<group>"; };
+		2769E1071EEF96890020EFE0 /* UIViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIViewAdditions.h; path = Dependencies/UIViewAdditions.h; sourceTree = "<group>"; };
+		2769E1081EEF96890020EFE0 /* UIView+TKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+TKCategory.m"; path = "Dependencies/UIView+TKCategory.m"; sourceTree = "<group>"; };
+		2769E1091EEF96890020EFE0 /* UIView+TKCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+TKCategory.h"; path = "Dependencies/UIView+TKCategory.h"; sourceTree = "<group>"; };
+		2769E10A1EEF96890020EFE0 /* UIView+Sizes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Sizes.m"; path = "Dependencies/UIView+Sizes.m"; sourceTree = "<group>"; };
+		2769E10B1EEF96890020EFE0 /* UIView+Sizes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Sizes.h"; path = "Dependencies/UIView+Sizes.h"; sourceTree = "<group>"; };
 		27B626821EC5B4260011971A /* video_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = video_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27B626861EC5B4260011971A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		27B626881EC5B4260011971A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -137,6 +146,12 @@
 		27282F0C1ECBF97600233FFD /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				2769E1071EEF96890020EFE0 /* UIViewAdditions.h */,
+				2769E1061EEF96890020EFE0 /* UIViewAdditions.m */,
+				2769E1091EEF96890020EFE0 /* UIView+TKCategory.h */,
+				2769E1081EEF96890020EFE0 /* UIView+TKCategory.m */,
+				2769E10B1EEF96890020EFE0 /* UIView+Sizes.h */,
+				2769E10A1EEF96890020EFE0 /* UIView+Sizes.m */,
 				27282F0D1ECBF98F00233FFD /* HttpRequest */,
 				2743BA141EE7820100D7A301 /* TabbarView.h */,
 				2743BA151EE7820100D7A301 /* TabbarView.m */,
@@ -410,11 +425,14 @@
 				27282F101ECBF9CB00233FFD /* HttpRequest.m in Sources */,
 				2764350A1EEA823300F5B90C /* CustomSegment.m in Sources */,
 				27B6268A1EC5B4260011971A /* AppDelegate.m in Sources */,
+				2769E10D1EEF96890020EFE0 /* UIView+TKCategory.m in Sources */,
 				276435101EEAA00700F5B90C /* HomeContentView.m in Sources */,
 				2743BA3A1EE79FB700D7A301 /* ChannelViewController.m in Sources */,
 				27B626871EC5B4260011971A /* main.m in Sources */,
+				2769E10E1EEF96890020EFE0 /* UIView+Sizes.m in Sources */,
 				2743BA1F1EE79A0000D7A301 /* TabbarItem.m in Sources */,
 				2743BA221EE79D9800D7A301 /* UIView+Utils.m in Sources */,
+				2769E10C1EEF96890020EFE0 /* UIViewAdditions.m in Sources */,
 				2743BA1C1EE794DF00D7A301 /* NSString+Utils.m in Sources */,
 				2764350D1EEA880C00F5B90C /* SegmentLabel.m in Sources */,
 				2743BA291EE79EFA00D7A301 /* HomeViewController.m in Sources */,
